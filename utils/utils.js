@@ -22,5 +22,16 @@ function checkAdress(obj){
     return myPromise
 }
 
+function checkProduct(obj){
+    const myPromise = new Promise((resolve,reject)=>{
+        if(obj.name !== " " && obj.price !== " " && obj.quantity !== " " && obj.description !== " " && obj.name !== "" && obj.price !== "" && obj.quantity !== "" && obj.description !== ""){
+            resolve(true)
+        }else{
+            reject(`Nenhum campo pode estar vazio`)
+        }
+    })
+    return myPromise
+}
 
-export default {checkUser,checkAdress}
+
+export default {checkUser,checkAdress,checkProduct}
