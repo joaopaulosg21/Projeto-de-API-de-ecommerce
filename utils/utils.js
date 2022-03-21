@@ -10,5 +10,17 @@ function checkUser(obj){
     return myPromise
 }
 
+function checkAdress(obj){
+    const myPromise = new Promise((resolve,reject)=>{
+        if(obj.city !== " " && obj.state !=="" && obj.country!== " " && obj.city!== "" && obj.state !== " " && obj.country !== ""){
+            resolve(true)
+        }else{
+            reject(`Nenhum campo pode estar vazio`)
+        }
+    })
+    
+    return myPromise
+}
 
-export default checkUser
+
+export default {checkUser,checkAdress}
