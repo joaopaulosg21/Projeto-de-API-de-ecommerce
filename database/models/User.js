@@ -4,10 +4,10 @@ const userSchema = database.Schema({
     name:String,
     username:String,
     password:String,
-    tokens:[{token:String}],
+    token:String,
     address:[{city:String,state:String,country:String}]
 })
 
-const User = mongoose.model('Users',userSchema)
+const User = database.model('Users',userSchema)
 
 export default User
