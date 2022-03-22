@@ -7,4 +7,5 @@ productRouter.post('/add',product.createProduct)
 
 productRouter.get('/',product.viewProducts)
 
+productRouter.get('/:id',product.viewProduct)
 export default productRouter

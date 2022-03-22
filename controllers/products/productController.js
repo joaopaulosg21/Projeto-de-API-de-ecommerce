@@ -20,6 +20,15 @@ class productController{
             res.status(500).json(error)
         }
     }
+
+    async viewProduct(req,res){
+        try{
+            const response = await product.viewProduct(req.params.id)
+            return res.status(response.status).json(response.msg)
+        }catch(error){
+            return res.status(500).json(error)
+        }
+    }
 }
 
 export default productController

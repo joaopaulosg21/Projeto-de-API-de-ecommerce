@@ -31,6 +31,22 @@ class productService{
             throw new Error(error)
         }
     }
+
+    async viewProduct(id){
+        try{
+            const product = await this.collection.findById(id)
+            if(product){
+                return {status:200,msg:product}
+            }else{
+                return {status:404,msg:`Produto não existe`}
+            }
+        }catch(error){
+            throw new Error(error)
+        }
+        
+
+    }
+
 }
 
 export default productService
