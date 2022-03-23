@@ -6,4 +6,8 @@ const cart = new cartController()
 
 cartRouter.post('/new',auth.checkToken,cart.createCart)
 
+cartRouter.get('/view',auth.checkToken,cart.viewCart)
+
+cartRouter.post('/deleteItem',auth.checkToken,cart.deleteItem)
+
 export default cartRouter
