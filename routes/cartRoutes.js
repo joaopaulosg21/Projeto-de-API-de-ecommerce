@@ -10,4 +10,6 @@ cartRouter.get('/view',auth.checkToken,cart.viewCart)
 
 cartRouter.post('/deleteItem',auth.checkToken,cart.deleteItem)
 
+cartRouter.post('/updateCart/:id',auth.checkToken,cart.updateCart)
+
 export default cartRouter

@@ -92,6 +92,26 @@ class cartService{
         }
     }
 
+    async update(user_id,product_id,quantity){
+        try{
+            const cart = await this.collection.findOne({user_id:user_id})
+            const product = await Product.findOne({_id:product_id})
+            if(cart){
+                const items = cart.items
+                const item = items.filter((item)=>{
+                    return item.name == product.product_name
+                })
+                cart.items.id(item[0]._id).product_quantity += quantity
+                await cart.save()
+                return {status:200, msg:`Produto ${product.name} atualizado nova quantidade ${cart.items.id(item[0]._id).product_quantity}`}
+            }else{
+                return {status:404,msg:`Carrinho não existe`}
+            }
+        }catch(error){
+            throw new Error(error)
+        }
+    }
+
 }
 
 export default cartService

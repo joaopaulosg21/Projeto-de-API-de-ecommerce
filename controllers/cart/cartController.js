@@ -40,6 +40,19 @@ class cartController{
             return res.status(500).json(error)
         }
     }
+
+    async updateCart(req,res){
+        const token = req.headers['authorization'].split(' ')[1]
+        const user_id = auth.decoded(req,token)
+        const {quantity} = req.body
+        try{
+            const response = await cart.update(user_id,req.params.id,quantity)
+            return res.status(response.status).json({msg:response.msg})
+        }catch(error){
+            console.log(error)
+            return res.status(500).json(error)
+        }
+    }
 }
 
 export default cartController
