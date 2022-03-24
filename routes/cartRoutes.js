@@ -4,7 +4,7 @@ import auth from '../controllers/auth.js'
 const cartRouter = Router()
 const cart = new cartController()
 
-cartRouter.post('/new',auth.checkToken,cart.createCart)
+cartRouter.post('/new',auth.checkToken,auth.checkClient,cart.createCart)
 
 cartRouter.get('/view',auth.checkToken,cart.viewCart)
 

@@ -5,7 +5,11 @@ const userSchema = database.Schema({
     username:String,
     password:String,
     token:String,
-    address:[{city:String,state:String,country:String}]
+    address:[{city:String,state:String,country:String}],
+    role:{
+        type:String,
+        default:'cliente'
+    }
 })
 
 const User = database.model('Users',userSchema)
